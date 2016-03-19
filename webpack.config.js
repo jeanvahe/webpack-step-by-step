@@ -26,11 +26,6 @@ var config = {
     publicPath: '/public/'
   },
   module: {
-    preLoaders: [{
-      test: /\.jsx$|\.js$/,
-      loader: 'eslint-loader',
-      include: __dirname + '/src/'
-    }],
     loaders: [{
       test: /\.jsx?$/,
       include: path.join(__dirname, 'src'),
@@ -40,6 +35,9 @@ var config = {
       test: /\.scss$/,
       include: path.join(__dirname, 'src'),
       loader: ExtractTextPlugin.extract('style-loader', 'css!autoprefixer-loader?browsers=last 2 version!sass')
+    }, {
+      test: /\.css$/,
+      loader: 'style!css'
     }]
   },
   plugins: [
