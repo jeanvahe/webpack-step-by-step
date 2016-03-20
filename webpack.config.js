@@ -26,6 +26,11 @@ var config = {
     publicPath: '/public/'
   },
   module: {
+    preLoaders: [{
+      test: /\.jsx$|\.js$/,
+      loader: 'eslint-loader',
+      include: __dirname + '/src/'
+    }],
     loaders: [{
       test: /\.jsx?$/,
       include: path.join(__dirname, 'src'),
